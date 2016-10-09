@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Is it morning? Please answer yes or no."
+echo -n "Is it morning? Please answer yes or no: "
 read answer
 
-if [ $answer = "yes" ]
+if [ "$answer" = "yes" ]
 then 
 	echo "Good morninig"
-elif [ $answer = "no" ]
+elif [ "$answer" = "no" ]
 then
 	echo "Good afternoon"
 else
