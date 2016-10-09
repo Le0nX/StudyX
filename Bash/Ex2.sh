@@ -1,13 +1,16 @@
 #!/bin/bash
 
-var="Hi, there"
-echo $var
-echo "$var"
-echo '$var'
-echo \$var
+if [ -f /bin/bash ]
+then 
+	echo "file /bin/bash exists"
+fi 
 
-echo Enter some text
-read var
+if [ -d /bin/bash ]
+then 
+	echo "/bin/bash is directory"
+else 
+	echo "/bin/bash is NOT a directory"
+fi
 
-echo '$var' is equal to $var
 exit 0
+
