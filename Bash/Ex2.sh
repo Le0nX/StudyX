@@ -3,7 +3,7 @@
 var="Hi, there"
 echo $var
 echo "$var"
-echo '$vaar'
+echo '$var'
 echo \$var
 
 echo Enter some text
