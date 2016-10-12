@@ -87,3 +87,34 @@ add_tracks() {
 	cdtrack=$((cdtrack+1))
 done 
 }
+
+add_records() {
+	echo -e "Enter catalog name \c"
+	read tmp
+	cdcatid=${tmp%%, *}
+
+	echo -e "Enter tittle \c"
+	read tmp
+	cdtitle=${tmp%%, *}
+
+	echo -e "Enter type \c"
+	read tmp
+	cdtype=${tmp%%, *}
+
+	echo -e "Enter artist/composer \c"
+	read tmp
+	cdac=${tmp%%, *}
+
+	echo About to add new entry
+	echo $cdcatid, $cdtitle, $cdtype, $cdac
+
+	if get_confirm
+	then
+		insert_title $cdcatid, $cdtitle, $cdtype, $cdac
+		add_tracks
+	else
+		remove_records
+	fi
+
+	return
+}
