@@ -11,15 +11,7 @@ int main(){
 	}
 
 	string[count+1]='\0';
-	int complexity = 0;
 	int i;
-	for(i=0; string[i] != '\0'; i++){ //отдельная буква
-		for(int k=0;string[k] != '\0'; k++){ // пул 
-			if(string[i]==string[k] && k!=i){
-				complexity++;
-			}
-		}
-	}
 
 	int unic_povtor=0;
 	for(i=0; string[i] != '\0'; i++){ //отдельная буква
