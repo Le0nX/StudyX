@@ -11,6 +11,7 @@ int main(int argc, char *argv[]){
 	gtk_window_set_title (GTK_WINDOW (window), "Test frame");
 	gtk_widget_show (window);
 
+	
 	/*control over the main loop*/	
 	gtk_main ();
 
