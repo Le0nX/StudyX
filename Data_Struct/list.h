@@ -10,8 +10,8 @@
 
 typedef struct ListElmt_ {
 	
-	void 		  *data;
-	void ListElmt *next;
+	void 		  	 *data;
+	struct ListElmt_ *next;
 	
 } ListElmt;
 
