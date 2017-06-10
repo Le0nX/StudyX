@@ -1,12 +1,14 @@
 #include <gtk/gtk.h>
 
-static void destroy (GtkWidget *window, gpointer data){
+static void 
+destroy (GtkWidget *window, gpointer data){
 	(void)window;
 	(void)data;
 	gtk_main_quit ();
 }
 
-static gboolean delete_event (GtkWidget *window, GdkEvent *event, gpointer data){
+static gboolean
+delete_event (GtkWidget *window, GdkEvent *event, gpointer data){
 	(void) window;
 	(void) event;
 	(void) data;
