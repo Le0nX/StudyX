@@ -18,10 +18,14 @@ int d1 = 12;
 long n = 1230;
 int x = 100;
 int del = 55; // fine adjustment for clock
-int lamp = 13;
 // 2 sec. frequency
 unsigned long interval=130;    // the time we need to wait
 unsigned long previousMillis=0; // millis() returns an unsigned long.
+
+int servopin=13;// select digital pin 9 for servomotor signal line
+int myangle;// initialize angle variable
+int pulsewidth;// initialize width variable
+int val;
 
 void setup()
 {
@@ -37,7 +41,11 @@ void setup()
  pinMode(f, OUTPUT);
  pinMode(g, OUTPUT);
  pinMode(dp, OUTPUT);
- pinMode(lamp, OUTPUT);
+ pinMode(servopin,OUTPUT);// set servo pin as ―output
+
+ 
+Serial.begin(9600);// connect to serial port, set baud rate at ―9600‖
+Serial.println("servo=o_seral_simple ready" ) ;
 }
 /////////////////////////////////////////////////////////////
 void loop()
@@ -63,6 +71,12 @@ Display(3,d3);
           if (d4 == 9){
             d4=0;
             Display(3, d3++);
+              val += 15;
+              
+            
+                  servopulse(servopin,val);// use the pulse function
+                  
+              
           }
              if (d3 == 9){
               d3=0;
@@ -259,12 +273,7 @@ Clear() ; // clear the screen
 }
 //////////////////////////////////////////////////////////
 
-/*
 
-int servopin=13;// select digital pin 9 for servomotor signal line
-int myangle;// initialize angle variable
-int pulsewidth;// initialize width variable
-int val;
 void servopulse(int servopin,int myangle)// define a servo pulse function
 {
 pulsewidth=(myangle*11)+500;// convert angle to 500-2480 pulse width
@@ -273,13 +282,7 @@ delayMicroseconds(pulsewidth);// delay microsecond of pulse width
 digitalWrite(servopin,LOW);// set the level of servo pin as ―low‖
 delay(20-pulsewidth/1000);
 }
-void setup()
-{
-pinMode(servopin,OUTPUT);// set servo pin as ―output‖
-
-Serial.begin(9600);// connect to serial port, set baud rate at ―9600‖
-Serial.println("servo=o_seral_simple ready" ) ;
-}
+/*
 void loop()// convert number 0 to 9 to corresponding 0-180 degree angle, LED blinks
 
 {
